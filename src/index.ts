@@ -319,7 +319,7 @@ export async function exit(): Promise<void> {
 }
 
 export const info: PluginInfo = {
-    id: 'fandomapi',
+    id: 'fandom',
     name: 'Fandom API Scraper',
     description: 'Scraper for Fandom pages.',
 };
