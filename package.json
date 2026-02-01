@@ -1,7 +1,7 @@
 {
     "name": "sillytavern-fandom-api-scraper",
-    "version": "1.0.0",
-    "description": "Scrape Fandom wiki pages using API parsing.",
+    "version": "1.0.1",
+    "description": "Scrape MediaWiki/Fandom wiki pages using API parsing.",
     "main": "dist/plugin.js",
     "type": "commonjs",
     "scripts": {

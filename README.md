@@ -1,8 +1,8 @@
 # SillyTavern Fandom API Scraper
 
-A SillyTavern server plugin designed to dump an entire Fandom Wiki into a text file for RAG.
+A SillyTavern server plugin designed to dump an entire MediaWiki/Fandom Wiki into a text file for RAG.
 
-### IMPORTANT: Standard MediaWiki parsing is currently not supported.
+### IMPORTANT: MediaWiki parsing can take too long due to aggressive rate limits. I recommend using the Fandom version of the wiki you want to scrape.
 
 ## Installation
 
@@ -32,7 +32,8 @@ A SillyTavern server plugin designed to dump an entire Fandom Wiki into a text f
 ## Warning
 
 **Do not install this plugin alongside the official [SillyTavern-Fandom-Scraper](https://github.com/SillyTavern/SillyTavern-Fandom-Scraper).**
-Using both may cause conflicts.
+
+This plugin is maintained separately so I can update it more easily. Using both will cause conflicts.
 
 ## License
 
