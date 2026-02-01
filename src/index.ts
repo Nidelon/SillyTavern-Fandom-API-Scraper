@@ -60,7 +60,7 @@ const BASE_RETRY_DELAY = 5000;
 
 const DEFAULT_HEADERS = {
     'User-Agent':
-        'SillyTavern-Fandom-API-Scraper/1.0.1 (https://github.com/Nidelon/SillyTavern-Fandom-API-Scraper)',
+        'SillyTavern-Fandom-API-Scraper/1.0.2 (https://github.com/Nidelon/SillyTavern-Fandom-API-Scraper)',
     Accept: 'application/json',
     'Accept-Encoding': 'gzip, deflate, br',
     Connection: 'keep-alive',
@@ -355,10 +355,22 @@ export async function init(router: Router): Promise<void> {
                 chalk.green(MODULE_NAME),
                 `Job Done! Returning ${results.length} pages.`,
             );
-            res.json(results);
+
+            res.setHeader('Content-Type', 'application/json');
+            res.write('[');
+            for (let i = 0; i < results.length; i++) {
+                res.write(JSON.stringify(results[i]));
+                if (i < results.length - 1) {
+                    res.write(',');
+                }
+            }
+            res.write(']');
+            res.end();
         } catch (error: any) {
             console.error(chalk.red(MODULE_NAME), error.message);
-            res.status(500).send(error.message);
+            if (!res.headersSent) {
+                res.status(500).send(error.message);
+            }
         }
     });
 
@@ -381,10 +393,22 @@ export async function init(router: Router): Promise<void> {
                 chalk.green(MODULE_NAME),
                 `Job Done! Returning ${results.length} pages.`,
             );
-            res.json(results);
+
+            res.setHeader('Content-Type', 'application/json');
+            res.write('[');
+            for (let i = 0; i < results.length; i++) {
+                res.write(JSON.stringify(results[i]));
+                if (i < results.length - 1) {
+                    res.write(',');
+                }
+            }
+            res.write(']');
+            res.end();
         } catch (error: any) {
             console.error(chalk.red(MODULE_NAME), error.message);
-            res.status(500).send(error.message);
+            if (!res.headersSent) {
+                res.status(500).send(error.message);
+            }
         }
     });
 
