@@ -1,3 +1,10 @@
+import { File } from 'node:buffer';
+
+// https://github.com/Nidelon/SillyTavern-Fandom-API-Scraper/issues/1
+if (typeof global.File === 'undefined') {
+    (global as any).File = File;
+}
+
 import bodyParser from 'body-parser';
 import { Router } from 'express';
 import chalk from 'chalk';
@@ -60,7 +67,7 @@ const BASE_RETRY_DELAY = 5000;
 
 const DEFAULT_HEADERS = {
     'User-Agent':
-        'SillyTavern-Fandom-API-Scraper/1.0.2 (https://github.com/Nidelon/SillyTavern-Fandom-API-Scraper)',
+        'SillyTavern-Fandom-API-Scraper/1.0.3 (https://github.com/Nidelon/SillyTavern-Fandom-API-Scraper)',
     Accept: 'application/json',
     'Accept-Encoding': 'gzip, deflate, br',
     Connection: 'keep-alive',
